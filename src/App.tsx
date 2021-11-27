@@ -28,7 +28,7 @@ const App = () =>{
         {/* Área de inserção de itens */}
 
         {/* Área de listagem de itens  */}
-        <TableArea/>
+        <TableArea list={filtedList} />
       </C.Body>
     </C.Container>
   );
