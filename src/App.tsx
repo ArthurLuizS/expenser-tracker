@@ -7,6 +7,7 @@ import { categories } from './data/categories'
 import { items } from './data/items'
 import * as D from './helpers/dateFilter'
 import {TableArea } from './components/tablearea/index'
+import {InfoArea} from './components/InfoArea'
 
 const App = () =>{
 
@@ -24,6 +25,7 @@ const App = () =>{
       </C.Header>
       <C.Body>
         {/* Área de informação */}
+        <InfoArea currentMonth = {currentMonth}/>
 
         {/* Área de inserção de itens */}
 
