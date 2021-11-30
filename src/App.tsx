@@ -14,10 +14,15 @@ const App = () =>{
   const [list, setList] = useState(items);
   const [filtedList, setFiltedlist] = useState<Item[]>([])
   const [currentMonth, setCurrentMonth] = useState(D.getCurrentMonth());
+ 
 
   useEffect(() => {
     setFiltedlist(D.filterListbyMonth(list, currentMonth))
   },[list, currentMonth])
+
+  const handleMonthChange = (newMonth: string) =>{
+    setCurrentMonth(newMonth);
+  }
   return(
     <C.Container>
       <C.Header>
@@ -25,7 +30,11 @@ const App = () =>{
       </C.Header>
       <C.Body>
         {/* Área de informação */}
-        <InfoArea currentMonth = {currentMonth}/>
+        <InfoArea 
+        currentMonth = {currentMonth}
+        onMonthChange = {handleMonthChange}
+        
+        />
 
         {/* Área de inserção de itens */}
 
