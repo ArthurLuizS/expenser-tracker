@@ -18,7 +18,7 @@ export const ItemAdd = ( {onAdd} : Props) =>{
 
     const handleAddEvent = () =>{
 
-        if (date == '' || categoria == '' || titulo == '' || valor == ''){
+        if (date == '' || categoria == '' || titulo.length === 0 || !titulo.trim() || valor == '' ){
             alert('Por favor preencher todos os campos');
         }else{
             let [year, month, day] = date.split('-'); 
@@ -51,7 +51,7 @@ export const ItemAdd = ( {onAdd} : Props) =>{
                 <option value="rent" >Despesa</option>
                 <option value="salary">Salário</option>
             </select>
-            <input type="text" placeholder='titulo' value ={titulo} onChange={e => setTitulo(e.target.value)} />  ;
+            <input type="text" placeholder='titulo' value ={titulo} onChange={e => setTitulo(e.target.value)} />  
             <input type="number" value = {valor} onChange={e => setValor(e.target.value)}/>
             <button onClick={handleAddEvent} > Adicionar </button> 
         </C.Container>
