@@ -8,6 +8,7 @@ import { items } from './data/items'
 import * as D from './helpers/dateFilter'
 import {TableArea } from './components/tablearea/index'
 import {InfoArea} from './components/InfoArea'
+import { ItemAdd } from './components/ItemAdd'
 
 const App = () =>{
 
@@ -41,13 +42,21 @@ const App = () =>{
   const handleMonthChange = (newMonth: string) =>{
     setCurrentMonth(newMonth);
   }
+
+  const handleAddItem = (item: Item) =>{
+    let newList = [...list];
+    newList.push(item);
+    setList(newList);
+  }
   return(
     <C.Container>
       <C.Header>
         <C.HeaderText> Sistema Financeiro </C.HeaderText>
       </C.Header>
       <C.Body>
+
         {/* Área de informação */}
+
         <InfoArea 
         currentMonth = {currentMonth}
         onMonthChange = {handleMonthChange}
@@ -57,8 +66,12 @@ const App = () =>{
         />
 
         {/* Área de inserção de itens */}
+        <ItemAdd onAdd={handleAddItem}/>
+
+
 
         {/* Área de listagem de itens  */}
+
         <TableArea list={filtedList} />
       </C.Body>
     </C.Container>
